@@ -1,0 +1,42 @@
+{
+  "name": "vue3-test-temperature-logs",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint --fix .",
+    "format": "prettier --write './**/*.{js,ts,vue,css,md,json,html}' --config ./.prettierrc",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@vicons/material": "^0.12.0",
+    "axios": "^0.26.1",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0",
+    "socket.io-client": "^4.4.1",
+    "vue": "^3.2.31",
+    "vue-router": "^4.0.14",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "@typescript-eslint/parser": "^5.16.0",
+    "@vitejs/plugin-vue": "^2.2.4",
+    "@vue/compiler-sfc": "^3.2.31",
+    "@vue/eslint-config-typescript": "^10.0.0",
+    "eslint": "^8.11.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-vue": "^8.5.0",
+    "naive-ui": "^2.26.4",
+    "prettier": "^2.6.0",
+    "typescript": "^4.6.2",
+    "vfonts": "^0.0.3",
+    "vite": "^2.8.6",
+    "vue-tsc": "^0.33.6"
+  }
+}

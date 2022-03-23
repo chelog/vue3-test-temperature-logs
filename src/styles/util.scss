@@ -1,0 +1,164 @@
+/*
+ * FLEX HELPERS
+ */
+
+.flex {
+  display: flex;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.row-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-reverse {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.ai-center { align-items: center; }
+.ai-start { align-items: flex-start; }
+.ai-end { align-items: flex-end; }
+.ai-baseline { align-items: baseline; }
+.ai-stretch { align-items: stretch; }
+
+.ac-center { align-content: center; }
+.ac-start { align-content: flex-start; }
+.ac-end { align-content: flex-end; }
+.ac-baseline { align-content: baseline; }
+.ac-stretch { align-content: stretch; }
+
+.as-center { align-self: center; }
+.as-start { align-self: flex-start; }
+.as-end { align-self: flex-end; }
+
+.jc-center { justify-content: center; }
+.jc-start { justify-content: flex-start; }
+.jc-end { justify-content: flex-end; }
+.jc-between { justify-content: space-between; }
+.jc-around { justify-content: space-around; }
+.jc-evenly { justify-content: space-evenly; }
+
+.js-center { justify-self: center }
+.js-start { justify-self: flex-start; }
+.js-end { justify-self: flex-end; }
+.js-stretch { justify-self: stretch }
+
+@for $i from 0 through 12 {
+  .grow-#{$i} { flex-grow: #{$i}; }
+}
+
+@for $i from 1 through 15 {
+  .gap-#{$i} { gap: #{$i}px #{$i}px; }
+}
+.gap-20 { gap: 20px 20px; }
+.gap-25 { gap: 25px 25px; }
+.gap-30 { gap: 30px 30px; }
+
+/*
+ * SPACE HELPERS
+ * Thanks to jacurtis: https://gist.github.com/jacurtis/30da4bf9a6c9b9b5cc0aebac512ca7c9
+ */
+
+$spaceamounts: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100);
+$sides: (top, bottom, left, right);
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+
+  .ma-#{$space} {
+    margin: #{$space}px !important;
+  }
+
+  .mx-#{$space} {
+    margin-left: #{$space}px !important;
+    margin-right: #{$space}px !important;
+  }
+
+  .my-#{$space} {
+    margin-top: #{$space}px !important;
+    margin-bottom: #{$space}px !important;
+  }
+
+  .pa-#{$space} {
+    padding: #{$space}px !important;
+  }
+
+  .px-#{$space} {
+    padding-left: #{$space}px !important;
+    padding-right: #{$space}px !important;
+  }
+
+  .py-#{$space} {
+    padding-top: #{$space}px !important;
+    padding-bottom: #{$space}px !important;
+  }
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/*
+ * SIZE AND POSITION HELPERS
+ */
+
+ $positions: (relative, absolute, fixed, sticky);
+
+ @each $position in $positions {
+   .#{$position} {
+     position: #{$position} !important;
+   }
+ }
+
+ .full-width {
+   width: 100%;
+ }
+
+ .full-height {
+   height: 100%;
+ }
+
+ .fill-parent {
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+ }

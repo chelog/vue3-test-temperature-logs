@@ -1,0 +1,14 @@
+{
+  "printWidth": 120,
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "singleQuote": true,
+  "overrides": [
+    {
+      "files": "*.vue",
+      "options": {
+        "htmlWhitespaceSensitivity": "ignore"
+      }
+    }
+  ]
+}
