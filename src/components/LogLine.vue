@@ -43,7 +43,7 @@ const editLog = (dto: LogEntryDto) => {
     </td>
 
     <NModal v-model:show="isEditing" :title="'Edit log #' + log.id" style="max-width: 450px" preset="card">
-      <EditLogEntry :log-data="log" save-button-text="Update" @save="editLog" />
+      <EditLogEntry :log="log" save-button-text="Update" @save="editLog" />
     </NModal>
   </tr>
 </template>

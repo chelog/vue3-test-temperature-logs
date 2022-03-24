@@ -5,8 +5,8 @@ import { computed, onMounted, ref, watch } from 'vue';
 import { LogEntryDto } from '@/types/app';
 
 const props = defineProps<{
-  /** Initial log data to fill in form */
-  logData?: LogEntryDto;
+  /** Initial log data to start form with */
+  log?: LogEntryDto;
   /** Custom "save" button text */
   saveButtonText?: string;
 }>();
@@ -18,17 +18,18 @@ const emit = defineEmits<{
   (eventName: 'update:modelValue', log: LogEntryDto): void;
 }>();
 
-const isLoading = ref(false);
 const isInputValid = ref(true);
 const inputFeedback = ref<string | undefined>(undefined);
-const logDto = ref<LogEntryDto>({ temperature: props.logData?.temperature ?? 0 });
+const logDto = ref<LogEntryDto>({ temperature: props.log?.temperature ?? 0 });
 
+// used to set NInputNumer's feedback color
 const inputValidationStatus = computed(() => {
   if (!isInputValid.value) return 'error';
   if (inputFeedback.value) return 'warning';
   return undefined;
 });
 
+// called after every change to validate temperature value
 const updateInputValidation = (log: LogEntryDto) => {
   isInputValid.value = true;
   inputFeedback.value = undefined;
@@ -43,6 +44,9 @@ const updateInputValidation = (log: LogEntryDto) => {
     inputFeedback.value = 'Readings are out of range, check the sensor';
   }
 };
+
+// if source log entry is set, we want to get updates from that
+if (props.log) watch(props.log, (newValue) => (logDto.value = newValue));
 
 watch(
   logDto,
@@ -62,7 +66,7 @@ onMounted(() => updateInputValidation(logDto.value));
       <NInputNumber v-model:value="logDto.temperature" class="full-width" placeholder="Temperature in degrees" />
     </NFormItem>
 
-    <NButton round :disabled="!isInputValid" :loading="isLoading" @click="emit('save', logDto)">
+    <NButton round :disabled="!isInputValid" @click="emit('save', logDto)">
       {{ saveButtonText ?? 'Save' }}
     </NButton>
   </div>

@@ -3,8 +3,8 @@ Little app made with Vue 3 + Vue Router + Vuex as a job application test task.
 
 ### How to start
 ```sh
-yarn # or npm i
-yarn dev # or npm run dev
+pnpm i # or npm i
+pnpm run dev # or npm run dev
 ```
 
 ### Notes
