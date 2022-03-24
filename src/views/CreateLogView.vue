@@ -2,8 +2,8 @@
 import { CloseRound } from '@vicons/material';
 import { NButton, NCard, NIcon } from 'naive-ui';
 import { RouterLink, useRouter } from 'vue-router';
-import { useStore } from 'vuex';
 
+import { useStore } from '@/store';
 import { LogEntryDto } from '@/types/app';
 
 import EditLogEntry from '../components/EditLogEntry.vue';
@@ -11,8 +11,8 @@ import EditLogEntry from '../components/EditLogEntry.vue';
 const store = useStore();
 const router = useRouter();
 
-const onInputTemperature = async (temperature: LogEntryDto) => {
-  store.dispatch('createLog', temperature);
+const onInputTemperature = async (log: LogEntryDto) => {
+  store.createLog(log);
   router.replace('/');
 };
 </script>

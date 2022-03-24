@@ -6,7 +6,7 @@ import { LogEntryDto } from '@/types/app';
 
 const props = defineProps<{
   /** Initial log data to fill in form */
-  log?: LogEntryDto;
+  logData?: LogEntryDto;
   /** Custom "save" button text */
   saveButtonText?: string;
 }>();
@@ -21,7 +21,7 @@ const emit = defineEmits<{
 const isLoading = ref(false);
 const isInputValid = ref(true);
 const inputFeedback = ref<string | undefined>(undefined);
-const log = ref<LogEntryDto>({ temperature: props.log?.temperature ?? 0 });
+const logDto = ref<LogEntryDto>({ temperature: props.logData?.temperature ?? 0 });
 
 const inputValidationStatus = computed(() => {
   if (!isInputValid.value) return 'error';
@@ -45,7 +45,7 @@ const updateInputValidation = (log: LogEntryDto) => {
 };
 
 watch(
-  log,
+  logDto,
   (newValue) => {
     updateInputValidation(newValue);
     emit('update:modelValue', newValue);
@@ -53,16 +53,16 @@ watch(
   { deep: true },
 );
 
-onMounted(() => updateInputValidation(log.value));
+onMounted(() => updateInputValidation(logDto.value));
 </script>
 
 <template>
   <div class="column gap-10">
     <NFormItem :validation-status="inputValidationStatus" label="Sensor readings" :feedback="inputFeedback">
-      <NInputNumber v-model:value="log.temperature" class="full-width" placeholder="Temperature in degrees" />
+      <NInputNumber v-model:value="logDto.temperature" class="full-width" placeholder="Temperature in degrees" />
     </NFormItem>
 
-    <NButton round :disabled="!isInputValid" :loading="isLoading" @click="emit('save', log)">
+    <NButton round :disabled="!isInputValid" :loading="isLoading" @click="emit('save', logDto)">
       {{ saveButtonText ?? 'Save' }}
     </NButton>
   </div>

@@ -2,9 +2,8 @@
 import { DeleteRound, EditRound } from '@vicons/material';
 import { NButton, NIcon, NModal } from 'naive-ui';
 import { ref } from 'vue';
-import { useStore } from 'vuex';
 
-import { UpdateLogPayload } from '@/store';
+import { useStore } from '@/store';
 import { LogEntry, LogEntryDto } from '@/types/app';
 
 import EditLogEntry from './EditLogEntry.vue';
@@ -19,12 +18,7 @@ const props = defineProps<{
 const isEditing = ref(false);
 
 const editLog = (dto: LogEntryDto) => {
-  const payload: UpdateLogPayload = {
-    logId: props.log.id,
-    data: { temperature: dto.temperature },
-  };
-  store.dispatch('updateLog', payload);
-
+  store.updateLog(props.log.id, { temperature: dto.temperature });
   isEditing.value = false;
 };
 </script>
@@ -40,7 +34,7 @@ const editLog = (dto: LogEntryDto) => {
             <NIcon><EditRound /></NIcon>
           </template>
         </NButton>
-        <NButton circle secondary size="small" @click="store.dispatch('deleteLog', log.id)">
+        <NButton circle secondary size="small" @click="store.deleteLog(log.id)">
           <template #icon>
             <NIcon><DeleteRound /></NIcon>
           </template>
@@ -49,7 +43,7 @@ const editLog = (dto: LogEntryDto) => {
     </td>
 
     <NModal v-model:show="isEditing" :title="'Edit log #' + log.id" style="max-width: 450px" preset="card">
-      <EditLogEntry :log="log" save-button-text="Update" @save="editLog" />
+      <EditLogEntry :log-data="log" save-button-text="Update" @save="editLog" />
     </NModal>
   </tr>
 </template>
