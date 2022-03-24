@@ -1,6 +1,7 @@
 {
   "name": "vue3-test-temperature-logs",
   "version": "0.0.1",
+  "packageManager": "pnpm@6.11.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
