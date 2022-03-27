@@ -1,17 +1,16 @@
 <script setup lang="ts">
 import { PlusRound } from '@vicons/material';
 import { NButton, NCard, NIcon } from 'naive-ui';
-import { useStore } from 'vuex';
 
 import LogList from '@/components/LogList.vue';
-import { StoreState } from '@/types/app';
+import { useStore } from '@/store';
 
-const store = useStore<StoreState>();
+const store = useStore();
 </script>
 
 <template>
   <NCard title="Logged readings" style="max-width: 400px">
-    <LogList :logs="store.state.logs" />
+    <LogList :logs="store.logs" />
 
     <template #header-extra>
       <RouterLink v-slot="{ navigate }" custom to="/create">

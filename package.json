@@ -1,7 +1,9 @@
 {
   "name": "vue3-test-temperature-logs",
   "version": "0.0.1",
+  "packageManager": "pnpm@6.11.0",
   "scripts": {
+    "start": "npx serve ./dist",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
@@ -12,12 +14,13 @@
   "dependencies": {
     "@vicons/material": "^0.12.0",
     "axios": "^0.26.1",
+    "pinia": "^2.0.12",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
+    "serve": "^13.0.2",
     "socket.io-client": "^4.4.1",
     "vue": "^3.2.31",
-    "vue-router": "^4.0.14",
-    "vuex": "^4.0.2"
+    "vue-router": "^4.0.14"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
