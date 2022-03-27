@@ -7,6 +7,7 @@
 export interface LogEntry {
   id: number;
   temperature: number;
+  date: Date;
 }
 
 /**

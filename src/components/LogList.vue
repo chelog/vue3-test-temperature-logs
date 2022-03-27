@@ -16,6 +16,7 @@ defineProps<{
     <thead>
       <tr>
         <th>ID</th>
+        <th>Date</th>
         <th>Readings</th>
         <th><!-- action buttons --></th>
       </tr>

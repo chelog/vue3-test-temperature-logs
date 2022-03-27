@@ -1,12 +1,14 @@
+import { useLocalStorage } from '@vueuse/core';
 import { defineStore } from 'pinia';
 
 import { LogEntry, LogEntryDto } from '@/types/app';
 
 export const useStore = defineStore('main', {
-  state: () => ({
-    nextLogId: 1,
-    logs: [] as LogEntry[],
-  }),
+  state: () =>
+    useLocalStorage('state', {
+      nextLogId: 1,
+      logs: [] as LogEntry[],
+    }),
   actions: {
     /**
      * Create new log entry and add it to main storage
