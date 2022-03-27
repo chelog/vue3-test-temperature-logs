@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { DeleteRound, EditRound } from '@vicons/material';
+import dayjs from 'dayjs';
 import { NButton, NIcon, NModal } from 'naive-ui';
 import { ref } from 'vue';
 
@@ -18,7 +19,7 @@ const props = defineProps<{
 const isEditing = ref(false);
 
 const editLog = (dto: LogEntryDto) => {
-  store.updateLog(props.log.id, { temperature: dto.temperature });
+  store.updateLog(props.log.id, dto);
   isEditing.value = false;
 };
 </script>
@@ -26,6 +27,7 @@ const editLog = (dto: LogEntryDto) => {
 <template>
   <tr style="position: relative">
     <td>{{ log.id }}</td>
+    <td>{{ dayjs(log.date).format('MM/DD/YYYY H:MM') }}</td>
     <td>{{ log.temperature }}°C</td>
     <td>
       <div class="row gap-5">
