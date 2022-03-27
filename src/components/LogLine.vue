@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { DeleteRound, EditRound } from '@vicons/material';
 import dayjs from 'dayjs';
 import { NButton, NIcon, NModal } from 'naive-ui';
 import { ref } from 'vue';
 
+import Icon from '@/components/Icon';
 import { useStore } from '@/store';
 import { LogEntry, LogEntryDto } from '@/types/app';
 
@@ -33,12 +33,12 @@ const editLog = (dto: LogEntryDto) => {
       <div class="row gap-5">
         <NButton circle secondary size="small" @click="isEditing = !isEditing">
           <template #icon>
-            <NIcon><EditRound /></NIcon>
+            <NIcon><Icon>mdi mdi-pencil</Icon></NIcon>
           </template>
         </NButton>
         <NButton circle secondary size="small" @click="store.deleteLog(log.id)">
           <template #icon>
-            <NIcon><DeleteRound /></NIcon>
+            <NIcon><Icon>mdi mdi-delete</Icon></NIcon>
           </template>
         </NButton>
       </div>

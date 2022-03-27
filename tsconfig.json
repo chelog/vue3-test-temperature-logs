@@ -12,6 +12,7 @@
     "noImplicitAny": true,
     "resolveJsonModule": true,
     "jsx": "preserve",
+    "jsxFactory": "h",
     "importHelpers": true,
     "baseUrl": ".",
     "lib": ["ESNext", "dom"],
@@ -19,6 +20,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue", "src/**/*.tsx"],
   "exclude": ["node_modules"]
 }

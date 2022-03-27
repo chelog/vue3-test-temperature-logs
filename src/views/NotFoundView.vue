@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { HomeRound } from '@vicons/material';
 import { NButton, NIcon } from 'naive-ui';
 import { RouterLink } from 'vue-router';
+
+import Icon from '@/components/Icon';
 
 import ErrorCard from '../components/ErrorCard.vue';
 </script>
@@ -15,7 +16,7 @@ import ErrorCard from '../components/ErrorCard.vue';
       <RouterLink v-slot="{ navigate }" custom to="/">
         <NButton class="full-width" @click="navigate">
           <template #icon>
-            <NIcon><HomeRound /></NIcon>
+            <NIcon><Icon>mdi mdi-home</Icon></NIcon>
           </template>
           Go to home page
         </NButton>
