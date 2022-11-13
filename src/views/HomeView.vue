@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { PlusRound } from '@vicons/material';
 import { NButton, NCard, NIcon } from 'naive-ui';
 
+import Icon from '@/components/Icon';
 import LogList from '@/components/LogList.vue';
 import { useStore } from '@/store';
 
@@ -16,7 +16,7 @@ const store = useStore();
       <RouterLink v-slot="{ navigate }" custom to="/create">
         <NButton circle type="primary" secondary @click="navigate">
           <template #icon>
-            <NIcon><PlusRound /></NIcon>
+            <NIcon><Icon>mdi mdi-plus</Icon></NIcon>
           </template>
         </NButton>
       </RouterLink>

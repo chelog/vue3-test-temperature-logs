@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { CloseRound } from '@vicons/material';
 import { NButton, NCard, NIcon } from 'naive-ui';
 import { RouterLink, useRouter } from 'vue-router';
 
+import Icon from '@/components/Icon';
 import { useStore } from '@/store';
 import { LogEntryDto } from '@/types/app';
 
@@ -25,7 +25,7 @@ const onInputTemperature = async (log: LogEntryDto) => {
       <RouterLink v-slot="{ navigate }" custom to="/">
         <NButton circle quaternary @click="navigate">
           <template #icon>
-            <NIcon><CloseRound /></NIcon>
+            <NIcon><Icon>mdi mdi-close</Icon></NIcon>
           </template>
         </NButton>
       </RouterLink>
